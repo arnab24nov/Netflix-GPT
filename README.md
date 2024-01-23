@@ -2,6 +2,18 @@
 
 - npx create-react-app
 - Configure Tailwind CSS
+- Header
+- Routing of the App
+- Sign in/Sign up form
+- Form validation
+- useRef hook
+- Firebase setup
+- Deploying the app on firebase
+- Create sign up user account
+- Implimented Sign in/sign up user API
+- Created Redux Store with userSlice
+- Implemented sign out
+- Update profile
 
 # Features
 
