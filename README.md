@@ -14,6 +14,10 @@
 - Created Redux Store with userSlice
 - Implemented sign out
 - Update profile
+- Register in TMDB movies, create an app, and get access token.
+- Fetch now playing movie list for the browse page.
+- Create movie slice to store the videos and trailer video as well.
+- built the main screen, auto-playing trailer video, title.
 
 # Features
 
