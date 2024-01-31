@@ -18,6 +18,9 @@
 - Fetch now playing movie list for the browse page.
 - Create movie slice to store the videos and trailer video as well.
 - built the main screen, auto-playing trailer video, title.
+- built the secondary screen, style it with tailwind css.
+- fetch popular, top-rated, upcoming movies and tv series using custom hooks.
+- showing all the data dynamically using redux store.
 
 # Features
 

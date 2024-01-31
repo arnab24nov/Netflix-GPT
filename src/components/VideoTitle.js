@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const VideoTitle = ({ title, overview }) => {
   const [showInfo, setShowInfo] = useState(false);
   return (
-    <div className=" w-screen h-screen aspect-video px-20 py-60 bg-transparent absolute top-0 bg-gradient-to-r from-black via-transparent ">
+    <div className="w-screen aspect-video px-20 py-60 bg-transparent absolute top-0 bg-gradient-to-r from-black via-transparent ">
       <div className=" text-white font-extrabold text-[30px] mb-4">{title}</div>
       {showInfo && (
         <div className="text-white font-semibold w-2/5">{overview}</div>
