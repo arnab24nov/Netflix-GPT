@@ -11,11 +11,13 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { BG_IMAGE } from "../utils/constants";
+import lang from "../utils/languageConstants";
 
 const Login = () => {
+  const langKey = useSelector((store) => store.language.lang);
   const dispatch = useDispatch();
   const [isSignIn, setIsSignIn] = useState(true);
   const [nameErrMessage, setNameErrMessage] = useState(null);
@@ -25,6 +27,10 @@ const Login = () => {
 
   const handleToggleSignInForm = () => {
     setIsSignIn(!isSignIn);
+    setNameErrMessage(null);
+    setEmailErrMessage(null);
+    setPasswordErrMessage(null);
+    setAuthErrMessage(null);
   };
 
   const name = useRef(null);
@@ -33,13 +39,13 @@ const Login = () => {
 
   const handleButtonClick = () => {
     const nameMsg = checkValidateName(name.current && name.current.value);
-    setNameErrMessage(nameMsg);
+    setNameErrMessage(langKey === "en" ? nameMsg : lang[langKey].nameMsg);
 
     const emailMsg = checkValidateEmail(email.current.value);
-    setEmailErrMessage(emailMsg);
+    setEmailErrMessage(langKey === "en" ? emailMsg : lang[langKey].emailMsg);
 
     const passMsg = checkValidatePassword(password.current.value);
-    setPasswordErrMessage(passMsg);
+    setPasswordErrMessage(langKey === "en" ? passMsg : lang[langKey].passMsg);
 
     if (nameMsg || emailMsg || passMsg) return;
 
@@ -99,14 +105,17 @@ const Login = () => {
       >
         <div className="mx-auto my-12 w-[70%]">
           <h1 className="text-white text-[30px] font-bold my-6">
-            {isSignIn ? "Sign In" : "Sign up"}
+            {isSignIn ? lang[langKey].signIn : lang[langKey].signUp}
           </h1>
+          {authErrMessage && (
+            <p className="text-orange-600 text-[13px] mb-3">{authErrMessage}</p>
+          )}
           {!isSignIn && (
             <div>
               <input
                 ref={name}
                 type="text"
-                placeholder="Name"
+                placeholder={lang[langKey].name}
                 className=" h-12 p-4 mb-4 w-full bg-zinc-800 rounded-md text-white"
               />
               {nameErrMessage && (
@@ -119,7 +128,7 @@ const Login = () => {
           <input
             ref={email}
             type="text"
-            placeholder="Email address"
+            placeholder={lang[langKey].email}
             className=" h-12 mb-4 p-4 w-full bg-zinc-800 rounded-md text-white"
           />
           {emailErrMessage && (
@@ -130,7 +139,7 @@ const Login = () => {
           <input
             ref={password}
             type="Password"
-            placeholder="Password"
+            placeholder={lang[langKey].password}
             className="h-12 p-4 mb-4 w-full bg-zinc-800 rounded-md text-white "
           />
           {passwordErrMessage && (
@@ -138,34 +147,34 @@ const Login = () => {
               {passwordErrMessage}
             </p>
           )}
-          {authErrMessage && (
-            <p className="text-orange-600 text-[13px] mb-3">{authErrMessage}</p>
-          )}
+
           <button
             onClick={handleButtonClick}
             className="h-12 w-full mt-6 mb-4 bg-red-600 text-white font-semibold rounded-md"
           >
-            {isSignIn ? "Sign in" : "Sign up"}
+            {isSignIn ? lang[langKey].signIn : lang[langKey].signUp}
           </button>
           {isSignIn && (
             <div className="flex items-center justify-between mb-4 text-[12px]">
               <label htmlFor="rememberMe" className="text-white">
                 <input type="checkbox" id="rememberMe" className="mr-2" />
-                Remember me
+                {lang[langKey].rememberMe}
               </label>
               <p className=" cursor-pointer hover:underline text-white">
-                Need help?
+                {lang[langKey].needHelp}
               </p>
             </div>
           )}
 
           <p className="text-slate-400">
-            {isSignIn ? "New to Netflix?" : "Already register?"}
+            {isSignIn
+              ? lang[langKey].newToNetflix
+              : lang[langKey].alreadyRegister}
             <span
               className="text-white cursor-pointer hover:underline"
               onClick={handleToggleSignInForm}
             >
-              {isSignIn ? " Sign Up now." : " Sign in now."}
+              {isSignIn ? lang[langKey].signInNow : lang[langKey].signUpNow}
             </span>
           </p>
         </div>

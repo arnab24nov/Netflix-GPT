@@ -21,6 +21,8 @@
 - built the secondary screen, style it with tailwind css.
 - fetch popular, top-rated, upcoming movies and tv series using custom hooks.
 - showing all the data dynamically using redux store.
+- add different language functionality in the page using redux store.
+- created GPT-Search bar component.
 
 # Features
 
