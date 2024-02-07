@@ -56,7 +56,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="absolute top-0 h-24 w-full px-[1.5%] bg-gradient-to-b from-black via-transparent flex justify-between items-center z-50">
+      <div className="absolute top-0 h-24 w-full px-[1.5%] bg-gradient-to-b from-black via-transparent flex flex-col md:flex-row justify-between items-center z-50 bg-black md:bg-transparent">
         <div className="grow">
           <img
             className="h-24
@@ -65,37 +65,45 @@ const Header = () => {
             alt="Logo"
           />
         </div>
-        <div>
-          <select
-            onChange={handleLanguageChange}
-            className="bg-red-600 text-white font-bold mr-4 px-2 py-1 rounded-lg"
-            defaultValue={langKey === "en" ? "en" : "hi"}
-          >
-            <option value="en">English</option>
-            <option value="hi">हिन्दी</option>
-          </select>
-        </div>
-        {user && (
-          <div className="flex items-center">
-            <button
+        <div className="flex">
+          <div className="">
+            <select
+              onChange={handleLanguageChange}
               className="bg-red-600 text-white font-bold mr-4 px-2 py-1 rounded-lg"
-              onClick={handleGptSearchClick}
+              defaultValue={langKey === "en" ? "en" : "hi"}
             >
-              {gpt ? lang[langKey].home : lang[langKey].gptSearch}
-            </button>
-            <img
-              src={USER_ICON}
-              alt="user-icon"
-              className="mr-6 cursor-pointer"
-              onClick={handleMenuVisibility}
-            />
+              <option value="en" className="text-[10px] md:text-[16px]">
+                English
+              </option>
+              <option value="hi" className="text-[10px] md:text-[16px]">
+                हिन्दी
+              </option>
+            </select>
           </div>
-        )}
+          {user && (
+            <div className="flex items-center">
+              <button
+                className="bg-red-600 text-white font-bold mr-4 px-2 py-1 rounded-lg"
+                onClick={handleGptSearchClick}
+              >
+                {gpt ? lang[langKey].home : lang[langKey].gptSearch}
+              </button>
+              <img
+                src={USER_ICON}
+                alt="user-icon"
+                className="mr-6 cursor-pointer"
+                onClick={handleMenuVisibility}
+              />
+            </div>
+          )}
+        </div>
       </div>
       {isMenuVisible && (
         <div>
-          <div className="absolute right-12 top-[58px]">🔺</div>
-          <div className="absolute right-8 top-20 rounded-sm bg-black w-40 px-2 py-3 z-50">
+          <div className="absolute right-32 md:right-12 top-32 md:top-[58px]">
+            🔺
+          </div>
+          <div className="absolute right-4 md:right-8 top-40 md:top-20 rounded-sm bg-black w-32 md:w-40 px-2 py-3 z-50 text-[14px] md:text-[18px]">
             <div className="text-white mb-1 font-semibold cursor-pointer">
               {lang[langKey].account}
             </div>

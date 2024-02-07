@@ -25,7 +25,7 @@ function MovieCard({ movieDetails }) {
 
   if (!movieDetails.poster_path) return;
   return (
-    <div className="w-48 pr-4 cursor-pointer transition-transform duration-300 hover:scale-95">
+    <div className=" w-32 md:w-40 pr-4 cursor-pointer transition-transform duration-300 hover:scale-95">
       <img
         src={`${IMAGE_PATH}${movieDetails.poster_path}`}
         alt="movie poster"

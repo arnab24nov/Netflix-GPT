@@ -22,11 +22,11 @@ function GptSearchBar() {
   };
 
   return (
-    <div className="absolute flex justify-center items-center mt-32 left-1/2 transform -translate-x-1/2 px-20 py-5 bg-black z-50">
+    <div className="absolute flex justify-center items-center mt-40 md:mt-32 left-1/2 transform -translate-x-1/2 px-4 md:px-12 py-3 md:py-5 bg-black z-50">
       <input
         type="text"
         placeholder={lang[langKey].watchToday}
-        className=" w-96 mr-3 px-2 py-1.5 rounded-lg border border-red-500"
+        className="w-72 md:w-96 mr-3 px-2 py-1.5 rounded-lg border border-red-500"
         ref={searchText}
       />
       <button

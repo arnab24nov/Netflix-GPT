@@ -27,6 +27,8 @@
 - getting related movies related those keyword(movie) from TMDB API.
 - created functionality to show the movie suggestions.
 - add functionality to show the trailer video and details when clicking on a movie card.
+- memoization
+- make responsive for small device.
 
 # Features
 

@@ -105,11 +105,15 @@ const Login = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black to-black opacity-50"></div>
       <Header />
       <div>
-        <img src={BG_IMAGE} alt="background" />
+        <img
+          src={BG_IMAGE}
+          alt="background"
+          className="h-screen md:h-fit object-cover w-screen"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute right-0 left-0 top-[20%] mx-auto h-[600px] w-[450px] bg-black bg-opacity-70 rounded-md"
+        className="absolute right-0 left-0 top-[20%] mx-auto h-[540px] md:h-[600px] w-80 md:w-[450px] bg-black bg-opacity-70 rounded-md"
       >
         <div className="mx-auto my-12 w-[70%]">
           <h1 className="text-white text-[30px] font-bold my-6">
@@ -182,7 +186,7 @@ const Login = () => {
               className="text-white cursor-pointer hover:underline"
               onClick={handleToggleSignInForm}
             >
-              {isSignIn ? lang[langKey].signInNow : lang[langKey].signUpNow}
+              {isSignIn ? lang[langKey].signUpNow : lang[langKey].signInNow}
             </span>
           </p>
         </div>
