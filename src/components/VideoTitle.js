@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import lang from "../utils/languageConstants";
 import { useSelector } from "react-redux";
 
-const VideoTitle = ({ title, overview }) => {
+const VideoTitle = () => {
   const langKey = useSelector((store) => store.language.lang);
   const [showInfo, setShowInfo] = useState(false);
+  const videoTitle = useSelector((store) => store.movies.trailerDetails);
+
+  if (!videoTitle) return null;
+  const { title, overview } = videoTitle;
 
   return (
     <div className="w-screen aspect-video px-20 py-60 bg-transparent absolute top-0 bg-gradient-to-r from-black via-transparent ">

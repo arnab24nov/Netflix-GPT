@@ -39,13 +39,21 @@ const Login = () => {
 
   const handleButtonClick = () => {
     const nameMsg = checkValidateName(name.current && name.current.value);
-    setNameErrMessage(langKey === "en" ? nameMsg : lang[langKey].nameMsg);
+    nameMsg
+      ? setNameErrMessage(langKey === "en" ? nameMsg : lang[langKey].nameMsg)
+      : setNameErrMessage(null);
 
     const emailMsg = checkValidateEmail(email.current.value);
-    setEmailErrMessage(langKey === "en" ? emailMsg : lang[langKey].emailMsg);
+    emailMsg
+      ? setEmailErrMessage(langKey === "en" ? emailMsg : lang[langKey].emailMsg)
+      : setEmailErrMessage(null);
 
     const passMsg = checkValidatePassword(password.current.value);
-    setPasswordErrMessage(langKey === "en" ? passMsg : lang[langKey].passMsg);
+    passMsg
+      ? setPasswordErrMessage(
+          langKey === "en" ? passMsg : lang[langKey].passMsg
+        )
+      : setPasswordErrMessage(null);
 
     if (nameMsg || emailMsg || passMsg) return;
 

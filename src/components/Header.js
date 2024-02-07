@@ -69,13 +69,10 @@ const Header = () => {
           <select
             onChange={handleLanguageChange}
             className="bg-red-600 text-white font-bold mr-4 px-2 py-1 rounded-lg"
+            defaultValue={langKey === "en" ? "en" : "hi"}
           >
-            <option value="en" selected={langKey === "en"}>
-              English
-            </option>
-            <option value="hi" selected={langKey === "hi"}>
-              हिन्दी
-            </option>
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
           </select>
         </div>
         {user && (

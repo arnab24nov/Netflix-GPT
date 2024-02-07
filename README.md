@@ -23,6 +23,10 @@
 - showing all the data dynamically using redux store.
 - add different language functionality in the page using redux store.
 - created GPT-Search bar component.
+- getting movie suggestion using openai api key.
+- getting related movies related those keyword(movie) from TMDB API.
+- created functionality to show the movie suggestions.
+- add functionality to show the trailer video and details when clicking on a movie card.
 
 # Features
 
