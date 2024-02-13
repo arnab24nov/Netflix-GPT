@@ -8,6 +8,10 @@ import { NETFLIX_LOGO, USER_ICON } from "../utils/constants";
 import { toggleGptStat } from "../utils/gptSearchSlice";
 import { changeLanguage } from "../utils/languageSlice";
 import lang from "../utils/languageConstants";
+import { RiAccountCircleLine } from "react-icons/ri";
+import { IoSettingsOutline } from "react-icons/io5";
+import { MdOutlineHelpCenter } from "react-icons/md";
+import { LiaSignOutAltSolid } from "react-icons/lia";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -104,19 +108,23 @@ const Header = () => {
             🔺
           </div>
           <div className="absolute right-4 md:right-8 top-40 md:top-20 rounded-sm bg-black w-32 md:w-40 px-2 py-3 z-50 text-[14px] md:text-[18px]">
-            <div className="text-white mb-1 font-semibold cursor-pointer">
+            <div className="text-white mb-1 font-semibold cursor-pointer flex items-center">
+              <RiAccountCircleLine size="20px" className="mr-2" />
               {lang[langKey].account}
             </div>
-            <div className="text-white mb-1 font-semibold cursor-pointer">
+            <div className="text-white mb-1 font-semibold cursor-pointer flex items-center">
+              <IoSettingsOutline size="20px" className="mr-2" />
               {lang[langKey].manageProfiles}
             </div>
-            <div className="text-white mb-1 font-semibold cursor-pointer">
+            <div className="text-white mb-1 font-semibold cursor-pointer flex items-center">
+              <MdOutlineHelpCenter size="20px" className="mr-2" />
               {lang[langKey].helpCentre}
             </div>
             <div
-              className="text-white border-t-2 mt-5 pt-2 text-center border-t-slate-400 font-semibold cursor-pointer"
+              className="text-white border-t-2 mt-5 pt-2 text-center border-t-slate-400 font-semibold cursor-pointer flex items-center"
               onClick={handleSignOutBtnClick}
             >
+              <LiaSignOutAltSolid size="20px" className="mr-2" />
               {lang[langKey].signOut}
             </div>
           </div>

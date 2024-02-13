@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
 import useSuggestMovie from "../hooks/useSuggestMovie";
 import { addSuggestMovies } from "../utils/gptSearchSlice";
+import { IoSearchSharp } from "react-icons/io5";
 
 function GptSearchBar() {
   const langKey = useSelector((store) => store.language.lang);
@@ -30,9 +31,10 @@ function GptSearchBar() {
         ref={searchText}
       />
       <button
-        className="bg-red-600 text-white rounded-lg px-3 py-1.5"
+        className="bg-red-600 text-white rounded-lg px-3 py-1.5 flex items-center"
         onClick={handleSearchBtnClick}
       >
+        <IoSearchSharp size="1.5rem" className="mr-1" />
         {lang[langKey].search}
       </button>
     </div>
